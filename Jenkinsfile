@@ -2,10 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Test CI') {
+
+        stage('Build Docker Image') {
             steps {
-                echo 'Pipeline working 🔥'
+                sh 'docker version'
+                sh 'docker build -t tenimrout/test-app .'
             }
         }
+
     }
 }
